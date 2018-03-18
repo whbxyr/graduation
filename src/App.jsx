@@ -1,11 +1,15 @@
 import React, { Component } from 'react'
-import Test from './components/Test'
+import Header from './components/Header'
+import '../static/css/reset.less'
 
 class App extends Component {
   render() {
     return (
       <div>
-        <Test />
+        <Header />
+        <div className='container'>
+          {this.props.children}
+        </div>
       </div>
     )
   }

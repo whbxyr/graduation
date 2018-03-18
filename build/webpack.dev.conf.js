@@ -54,7 +54,8 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': require('../config/dev.env')
+      // 这里一定要使用 JSON.stringify 转换成字符串，否则浏览器会报错
+      'process.env': JSON.stringify(config.dev.env)
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),

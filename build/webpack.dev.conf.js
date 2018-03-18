@@ -8,8 +8,15 @@ const baseWebpackConfig = require('./webpack.base.conf')
 // 引入需要的plugin
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const FriendlyErrorsPlugin = require('firendly-errors-plugin')
+const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
+
+// add hot-reload related code to entry chunks
+Object.keys(baseWebpackConfig.entry).forEach(function (name) {
+  baseWebpackConfig.entry[name] = [
+    'react-hot-loader/patch'
+  ].concat(baseWebpackConfig.entry[name])
+})
 
 const HOST = process.env.HOST
 const PORT = process.env.PORT
@@ -24,7 +31,9 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   devServer: {
     clientLogLevel: 'error',
     historyApiFallback: {
-      { from: /.*/, to: path.posix.join(config.dev.assetsPublicPath, 'index.html') }
+      rewrites: [
+        { from: /.*/, to: path.posix.join(config.dev.assetsPublicPath, 'index.html') }
+      ]
     },
     hot: true,
     contentBase: false,
@@ -66,7 +75,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
 })
 
 module.exports = new Promise((resolve, reject) => {
-  portfinder.basePort = process.env.PORT || config.dev.PORT
+  portfinder.basePort = process.env.PORT || config.dev.port
   portfinder.getPort((err, port) => {
     if (err) {
       reject(err)

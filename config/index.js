@@ -25,6 +25,8 @@ module.exports = {
     errorOverlay: true,
     notifyOnErrors: true,
     poll: false,
+    useEslint: true,
+    showEslintErrorsInOverlay: true,
     cssSourceMap: true
   },
   // build时使用的配置

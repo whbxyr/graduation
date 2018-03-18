@@ -1,3 +1,4 @@
 module.exports = {
-  NODE_ENV: 'development'
+  // 注意，一定要加双引号
+  NODE_ENV: '"development"'
 }

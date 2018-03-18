@@ -7,10 +7,22 @@ function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }
 
+// 根据需要使用eslint
+const createLintingRule = () => ({
+  test: /\.jsx?$/,
+  loader: 'eslint-loader',
+  enforce: 'pre',
+  include: [resolve('src')],
+  options: {
+    formatter: require('eslint-friendly-formatter'),
+    emitWarning: !config.dev.showEslintErrorsInOverlay
+  }
+})
+
 module.exports = {
-  context: path.resolve('..'),
+  context: resolve(''),
   entry: {
-    app: './src/app.js'
+    main: './src/main.js'
   },
   output: {
     path: config.build.assetsRoot,
@@ -24,6 +36,7 @@ module.exports = {
   },
   module: {
     rules: [
+      ...(config.dev.useEslint ? [createLintingRule()] : []),
       {
         test: /\.jsx?$/,
         loader: 'babel-loader',

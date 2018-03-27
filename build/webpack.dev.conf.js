@@ -58,6 +58,8 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       'process.env': JSON.stringify(config.dev.env)
     }),
     new webpack.HotModuleReplacementPlugin(),
+    // 开发环境建议使用的插件
+    // This plugin will cause the relative path of the module to be displayed when HMR is enabled. 
     new webpack.NamedModulesPlugin(),
     new HtmlWebpackPlugin({
       filename: 'index.html',

@@ -24,7 +24,7 @@ const render = () => {
         <App>
           <Route path={'/test'} component={Test} />
           <Route path={'/defineword'} render={() =>
-            <DefineWord style={{'width': '800px', 'margin': '0 auto'}} PREFIX='' className='myword' />}
+            <DefineWord style={{'width': '300px', 'margin': '0 auto'}} PREFIX='' className='myword' />}
           />
         </App>
       </Router>

@@ -64,7 +64,8 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'index.html',
-      inject: true
+      inject: true,
+      favicon: './static/images/favicon.png'
     }),
     // 把项目的静态资源复制到项目的生产目录下，比如本项目的静态资源文件夹是 static
     new CopyWebpackPlugin([

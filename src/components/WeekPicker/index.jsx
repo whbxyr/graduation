@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import dateUtils from '../../helpers/DateUtils'
+import dateUtils from './DateUtils'
 import WeekPickerAction from './action'
 
 class WeekPicker extends Component {

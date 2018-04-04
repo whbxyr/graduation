@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import dateUtils from '../../helpers/DateUtils'
+import dateUtils from './DateUtils'
 import DatePickerAction from './action'
 
 class DatePicker extends Component {

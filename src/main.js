@@ -13,6 +13,7 @@ import App from './App'
 import DefineWord from './components/DefineWord'
 import DatePicker from './components/DatePicker'
 import WeekPicker from './components/WeekPicker'
+import Upload from './components/Upload'
 
 const browserHistory = createBrowserHistory()
 const store = createStore(browserHistory)
@@ -34,6 +35,11 @@ const render = () => {
           <Route path={'/weekpicker'} render={() =>
             <div className='weekpicker-ctn'>
               <WeekPicker PREFIX='' style={{}} className='' futureDisabled onDateChange={(obj) => { console.log(obj) }} />
+            </div>}
+          />
+          <Route path={'/upload'} render={() =>
+            <div className='upload-ctn'>
+              <Upload style={{}} className='' PREFIX='' url='' />
             </div>}
           />
         </App>

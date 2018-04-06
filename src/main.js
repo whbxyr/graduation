@@ -10,8 +10,8 @@ import createStore from './store/createStore'
 import { Router, Route } from 'react-router-dom'
 import { syncHistoryWithStore } from 'react-router-redux'
 import App from './App'
-import Test from './components/Test'
 import DefineWord from './components/DefineWord'
+import DatePicker from './components/DatePicker'
 
 const browserHistory = createBrowserHistory()
 const store = createStore(browserHistory)
@@ -22,9 +22,13 @@ const render = () => {
     <Provider store={store}>
       <Router history={history}>
         <App>
-          <Route path={'/test'} component={Test} />
           <Route path={'/defineword'} render={() =>
-            <DefineWord style={{'width': '300px', 'margin': '0 auto'}} PREFIX='' className='myword' />}
+            <DefineWord PREFIX='' style={{'width': '300px', 'margin': '0 auto'}} className='myword' />}
+          />
+          <Route path={'/datepicker'} render={() =>
+            <div className='datepicker-ctn'>
+              <DatePicker PREFIX='' style={{}} className='' onDateChange={(obj) => { console.log(obj) }} />
+            </div>}
           />
         </App>
       </Router>

@@ -38,6 +38,9 @@ module.exports = {
       'named': 'never',
       'asyncArrow': 'always'
     }],
+    'no-extend-native': 0,
+    'no-redeclare': 0,
+    'no-useless-call': 0,
     'quotes': ['error', 'single'],
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,

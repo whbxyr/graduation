@@ -71,7 +71,7 @@ class DatePicker extends Component {
           <i className='switcher next' onClick={() => { that.nextMonths() }} />
 
           <div className='calendar-panel'>
-            <table className='l'>
+            <table className='l' cellSpacing={0}>
               <caption>{that.formatMonthToCN(pickerMonths[0])}</caption>
               <thead>
                 <tr>
@@ -87,7 +87,7 @@ class DatePicker extends Component {
               {this.getMonthTableBody(pickerMonths[0])}
             </table>
 
-            <table className='r'>
+            <table className='r' cellSpacing={0}>
               <caption>{that.formatMonthToCN(pickerMonths[1])}</caption>
               <thead>
                 <tr>

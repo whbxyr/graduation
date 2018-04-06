@@ -202,6 +202,9 @@ DateUtils.prototype.fGetYearCalendar = function (sYear) {
  * 来获得开始周的开始时间戳或者结束周的结束时间戳
  */
 DateUtils.prototype.fGetTimeFromWeekId = function (weekId, type) {
+  if (typeof weekId === 'undefined') {
+    return
+  }
   var year = +weekId.slice(0, 4)
   var calendar = dateUtils.fGetYearCalendar(year)
   for (let i = 0, len = calendar.length; i < len; i++) {

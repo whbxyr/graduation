@@ -12,6 +12,7 @@ import { syncHistoryWithStore } from 'react-router-redux'
 import App from './App'
 import DefineWord from './components/DefineWord'
 import DatePicker from './components/DatePicker'
+import WeekPicker from './components/WeekPicker'
 
 const browserHistory = createBrowserHistory()
 const store = createStore(browserHistory)
@@ -28,6 +29,11 @@ const render = () => {
           <Route path={'/datepicker'} render={() =>
             <div className='datepicker-ctn'>
               <DatePicker PREFIX='' style={{}} className='' onDateChange={(obj) => { console.log(obj) }} />
+            </div>}
+          />
+          <Route path={'/weekpicker'} render={() =>
+            <div className='weekpicker-ctn'>
+              <WeekPicker PREFIX='' style={{}} className='' futureDisabled onDateChange={(obj) => { console.log(obj) }} />
             </div>}
           />
         </App>

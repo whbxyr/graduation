@@ -14,6 +14,7 @@ import DefineWord from './components/DefineWord'
 import DatePicker from './components/DatePicker'
 import WeekPicker from './components/WeekPicker'
 import Upload from './components/Upload'
+import Search from './components/Search'
 
 const browserHistory = createBrowserHistory()
 const store = createStore(browserHistory)
@@ -40,6 +41,13 @@ const render = () => {
           <Route path={'/upload'} render={() =>
             <div className='upload-ctn'>
               <Upload style={{}} className='' PREFIX='' url='' />
+            </div>}
+          />
+          <Route path={'/search'} render={() =>
+            <div className='search-ctn'>
+              <Search style={{}} className='' PREFIX=''
+                suggestSearchUrl='http://suggestion.baidu.com/su?wd='
+                searchUrl='https://www.baidu.com/s?&wd=' />
             </div>}
           />
         </App>

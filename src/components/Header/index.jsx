@@ -48,6 +48,10 @@ class Header extends Component {
             <div className='img upload' />
             <div className='text toh'>上传组件</div>
           </a>
+          <a className='l link clearfloat' title='搜索组件' href='/search'>
+            <div className='img search' />
+            <div className='text toh'>搜索组件</div>
+          </a>
         </div>
       </div>
     )

@@ -1,8 +1,8 @@
-import { SET_KEYWORD, SET_RESULT, SET_TEXT, buildConstant } from './constants'
+import { SET_KEYWORD, SET_RESULT, SET_TEXT, SET_RESULT_INDEX, buildConstant } from './constants'
 import { combineReducers } from 'redux'
 
 const SearchReducer = (PREFIX) => {
-  const keyword = (state = '11', action) => {
+  const keyword = (state = '', action) => {
     if (action.type === buildConstant(PREFIX, SET_KEYWORD)) {
       return action.keyword
     }
@@ -23,10 +23,18 @@ const SearchReducer = (PREFIX) => {
     return state
   }
 
+  const resultIndex = (state = -1, action) => {
+    if (action.type === buildConstant(PREFIX, SET_RESULT_INDEX)) {
+      return action.resultIndex
+    }
+    return state
+  }
+
   return combineReducers({
     keyword,
     result,
-    text
+    text,
+    resultIndex
   })
 }
 

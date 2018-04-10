@@ -1,4 +1,4 @@
-import { SET_KEYWORD, SET_RESULT, SET_TEXT, buildConstant } from './constants'
+import { SET_KEYWORD, SET_RESULT, SET_TEXT, SET_RESULT_INDEX, buildConstant } from './constants'
 
 const SearchAction = (PREFIX) => ({
   setKeyword(keyword) {
@@ -9,6 +9,9 @@ const SearchAction = (PREFIX) => ({
   },
   setText(text) {
     return { type: buildConstant(PREFIX, SET_TEXT), text }
+  },
+  setResultIndex(resultIndex) {
+    return { type: buildConstant(PREFIX, SET_RESULT_INDEX), resultIndex }
   }
 })
 

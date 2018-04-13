@@ -15,6 +15,7 @@ import DatePicker from './components/DatePicker'
 import WeekPicker from './components/WeekPicker'
 import Upload from './components/Upload'
 import Search from './components/Search'
+import DragProgress from './components/DragProgress'
 
 const browserHistory = createBrowserHistory()
 const store = createStore(browserHistory)
@@ -48,6 +49,11 @@ const render = () => {
               <Search style={{}} className='' PREFIX=''
                 suggestSearchUrl='http://suggestion.baidu.com/su?wd='
                 searchUrl='https://www.baidu.com/s?&wd=' />
+            </div>}
+          />
+          <Route path={'/dragprogress'} render={() =>
+            <div className='drag-progress-ctn'>
+              <DragProgress style={{}} className='' PREFIX='' />
             </div>}
           />
         </App>

@@ -5,6 +5,7 @@ import DatePickerReducer from './components/DatePicker/reducer'
 import WeekPickerReducer from './components/WeekPicker/reducer'
 import UploadReducer from './components/Upload/reducer'
 import SearchReducer from './components/Search/reducer'
+import DragProgressReducer from './components/DragProgress/reducer'
 
 export default combineReducers({
   routing: routerReducer,
@@ -12,5 +13,6 @@ export default combineReducers({
   datePicker: DatePickerReducer(''),
   weekPicker: WeekPickerReducer(''),
   upload: UploadReducer(''),
-  search: SearchReducer('')
+  search: SearchReducer(''),
+  dragProgress: DragProgressReducer('')
 })

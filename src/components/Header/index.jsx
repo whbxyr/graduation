@@ -52,6 +52,10 @@ class Header extends Component {
             <div className='img search' />
             <div className='text toh'>搜索组件</div>
           </a>
+          <a className='l link clearfloat' title='拖拽进度' href='/dragProgress'>
+            <div className='img drag-progress' />
+            <div className='text toh'>拖拽进度</div>
+          </a>
         </div>
       </div>
     )

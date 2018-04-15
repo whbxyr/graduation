@@ -4,6 +4,10 @@
   position: relative;
   background: #24465a;
   margin-bottom: 20px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   .icon {
     position: absolute;
     top: 0;
@@ -49,6 +53,7 @@
     cursor: pointer;
   }
   .menu-ctn {
+    z-index: 1;
     position: absolute;
     top: 100px;
     right: 30px;
@@ -102,6 +107,9 @@
     }
     .search {
       background: url('./images/search.png');
+    }
+    .drag-progress {
+      background: url('./images/dragProgress.png'); 
     }
   }
 }

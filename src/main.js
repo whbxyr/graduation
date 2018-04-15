@@ -53,7 +53,13 @@ const render = () => {
           />
           <Route path={'/dragprogress'} render={() =>
             <div className='drag-progress-ctn'>
-              <DragProgress style={{}} className='' PREFIX='' />
+              <DragProgress style={{}} className='' PREFIX=''
+                width={300}
+                stepTime={50000}
+                totalTime={864000}
+                signTime={[100000, 300000, 500000]}
+                callback={(data) => console.log(data)}
+              />
             </div>}
           />
         </App>

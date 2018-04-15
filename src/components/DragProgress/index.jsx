@@ -146,24 +146,23 @@ class DragProgress extends Component {
       timer = null
     }
     const { callback } = this.props
-    this.doDispatch('setButtonX', left)
+    this.doDispatch('setButtonX', left * this.refs.drag_progress_component.clientWidth)
     this.doDispatch('setPlay', false)
     this.doDispatch('setPassTime', time)
     callback(time)
   }
 
   render() {
-    let { style, className, isPlaying, buttonX, passTime, signTime, totalTime, width } = this.props
+    let { style, className, isPlaying, buttonX, passTime, signTime, totalTime } = this.props
     signTime = [...new Set(signTime)]
-    width = width || 300
     let signTimeBlockArr = []
     for (let i = 0, len = signTime.length; i < len; i++) {
       let item = signTime[i]
       if (item > 0 && item < totalTime) {
-        let left = item / totalTime * width
+        let left = item / totalTime
         signTimeBlockArr.push(
           <div key={`signTimeBlockArr${i}`} className='signtime'
-            style={{left: `${left}px`}}
+            style={{left: `${left * 100}%`}}
             onClick={() => this.clickSignTime(item, left)}
           />
         )
@@ -172,7 +171,7 @@ class DragProgress extends Component {
 
     return (
       <div className={'drag-progress-component ' + className}
-        style={{...style, width: `${width}px`}} ref='drag_progress_component'>
+        style={style} ref='drag_progress_component'>
         <div className={'l button ' + (isPlaying ? 'active' : '')}
           style={{marginLeft: buttonX + 'px'}}
           onClick={() => this.clickButton()}

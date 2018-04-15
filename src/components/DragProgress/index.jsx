@@ -79,6 +79,7 @@ class DragProgress extends Component {
   dragButton(e) {
     // 只有在按钮上长按了，才能拖动进度条
     if (isMouseDown) {
+      this.doDispatch('setPlay', false)
       if (timer) {
         clearInterval(timer)
         timer = null

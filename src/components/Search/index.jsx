@@ -122,7 +122,7 @@ class Search extends Component {
     }
 
     return (
-      <div className={'search-wrp ' + className} style={style}>
+      <div className={'search-wrp ' + (className || '')} style={style || {}}>
         <div className='search-input'>
           <input type='text' onChange={() => this.input()} ref='keyword' onKeyDown={(e) => this.doSearch(e)} value={keyword} />
           <div className='button' onClick={() => this.doSearch()}>搜索</div>

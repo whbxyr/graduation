@@ -93,7 +93,7 @@ class DefineWord extends Component {
     const { defineWord, style, className } = this.props
     let words = this.showWord()
     return (
-      <div className={'define-word clearfloat ' + className} style={style}>
+      <div className={'define-word clearfloat ' + (className || '')} style={style || {}}>
         <div className='define-word-ctn clearfloat' onClick={() => this.refs.input_area.focus()}>
           <div className='l title'>自定义词典</div>
           {words}

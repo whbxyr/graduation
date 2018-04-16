@@ -3,8 +3,11 @@ import { connect } from 'react-redux'
 import DragProgressAction from './action'
 import './index.less'
 
+// 按钮是否被按下的标记
 let isMouseDown = false
+// 是否正属于拖拽期间的标记
 let isMouseMove = false
+// 按钮被按下时水平方向的距离
 let LocationX = null
 let timer = null
 
@@ -25,15 +28,17 @@ class DragProgress extends Component {
     let { isPlaying, stepTime, totalTime, callback } = this.props
     let progressWidth = this.refs.drag_progress_component.clientWidth
     this.doDispatch('setPlay', !isPlaying)
-    // 清除原有的计时器
     if (timer) {
       clearInterval(timer)
       timer = null
     }
+    // 计算按钮的滑动步进值
     var step = progressWidth / (totalTime / stepTime)
     if (!isPlaying) {
       let { buttonX } = this.props
+      // 如果按下按钮时恰好进度条本来就已经到底的
       if (buttonX === progressWidth) {
+        // 将按钮水平方向距离重置为0并调用回调
         buttonX = 0
         this.doDispatch('setButtonX', buttonX)
         callback(buttonX)
@@ -49,7 +54,6 @@ class DragProgress extends Component {
           this.doDispatch('setPassTime', totalTime)
           // 将按钮改为准备播放状态
           this.doDispatch('setPlay', false)
-          // 清除计时器
           clearInterval(timer)
           timer = null
           // 回调传递时间
@@ -59,6 +63,7 @@ class DragProgress extends Component {
         this.doDispatch('setButtonX', newButtonX)
         let passTime = newButtonX / progressWidth * totalTime
         this.doDispatch('setPassTime', passTime)
+        // 如果加上步进值后刚刚到底，那么立即将按钮置为待播放状态并清除计时器
         if (passTime === totalTime) {
           this.doDispatch('setPlay', false)
           clearInterval(timer)
@@ -79,6 +84,7 @@ class DragProgress extends Component {
   dragButton(e) {
     // 只有在按钮上长按了，才能拖动进度条
     if (isMouseDown) {
+      // 拖拽的时候暂停播放
       this.doDispatch('setPlay', false)
       if (timer) {
         clearInterval(timer)
@@ -105,6 +111,7 @@ class DragProgress extends Component {
 
   // 拖动放开后的回调
   mouseUpButton(e) {
+    // 如果是拖拽之后才触发的onmousedown，那么需要执行对新状态执行回调
     if (isMouseMove) {
       let { passTime, callback } = this.props
       callback(passTime)
@@ -155,10 +162,14 @@ class DragProgress extends Component {
 
   render() {
     let { style, className, isPlaying, buttonX, passTime, signTime, totalTime } = this.props
-    signTime = [...new Set(signTime)]
     let signTimeBlockArr = []
+
+    // 去除重复的标记时间
+    signTime = [...new Set(signTime)]
+
     for (let i = 0, len = signTime.length; i < len; i++) {
       let item = signTime[i]
+
       if (item > 0 && item < totalTime) {
         let left = item / totalTime
         signTimeBlockArr.push(
@@ -171,8 +182,8 @@ class DragProgress extends Component {
     }
 
     return (
-      <div className={'drag-progress-component ' + className}
-        style={style} ref='drag_progress_component'>
+      <div className={'drag-progress-component ' + (className || '')}
+        style={style || {}} ref='drag_progress_component'>
         <div className={'l button ' + (isPlaying ? 'active' : '')}
           style={{marginLeft: buttonX + 'px'}}
           onClick={() => this.clickButton()}

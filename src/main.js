@@ -16,6 +16,7 @@ import WeekPicker from './components/WeekPicker'
 import Upload from './components/Upload'
 import Search from './components/Search'
 import DragProgress from './components/DragProgress'
+import Selector from './components/Selector'
 
 const browserHistory = createBrowserHistory()
 const store = createStore(browserHistory)
@@ -59,6 +60,14 @@ const render = () => {
                 signTime={[100000, 300000, 500000]}
                 callback={(data) => console.log(data)}
               />
+            </div>}
+          />
+          <Route path={'/selector'} render={() =>
+            <div className='selector-ctn'>
+              <Selector style={{}} className='' PREFIX='' choices={[
+                {key: 0, label: '第一个', value: 0},
+                {key: 1, label: '第二个', value: 1}
+              ]} />
             </div>}
           />
         </App>

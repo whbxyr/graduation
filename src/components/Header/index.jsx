@@ -52,9 +52,13 @@ class Header extends Component {
             <div className='img search' />
             <div className='text toh'>搜索组件</div>
           </a>
-          <a className='l link clearfloat' title='拖拽进度' href='/dragProgress'>
+          <a className='l link clearfloat' title='拖拽进度' href='/dragprogress'>
             <div className='img drag-progress' />
             <div className='text toh'>拖拽进度</div>
+          </a>
+          <a className='l link clearfloat' title='选择组件' href='/selector'>
+            <div className='img selector' />
+            <div className='text toh'>选择组件</div>
           </a>
         </div>
       </div>

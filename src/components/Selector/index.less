@@ -1,0 +1,92 @@
+@font-face {
+  font-family: 'iconfont';  /* project id 645284 */
+  src: url('http://at.alicdn.com/t/font_645284_8izw4suay49ozuxr.eot');
+  src: url('http://at.alicdn.com/t/font_645284_8izw4suay49ozuxr.eot?#iefix') format('embedded-opentype'),
+  url('http://at.alicdn.com/t/font_645284_8izw4suay49ozuxr.woff') format('woff'),
+  url('http://at.alicdn.com/t/font_645284_8izw4suay49ozuxr.ttf') format('truetype'),
+  url('http://at.alicdn.com/t/font_645284_8izw4suay49ozuxr.svg#iconfont') format('svg');
+}
+.selector {
+  width: 100%;
+  height: 40px;
+  position: relative;
+  i {
+    font-style: normal;
+  }
+  input {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 15px;
+    padding-right: 30px;
+    background-color: #fff;
+    border: 1px solid #dcdfe6;
+    border-radius: 4px;
+    color: #606266;
+    outline: none;
+    transition: border-color .2s cubic-bezier(.645,.045,.355,1);
+    cursor: pointer;
+    &.is-focus {
+      border-color: #409eff;
+    }
+  }
+  .input-suffix-arrow-up {
+    position: absolute;
+    height: 100%;
+    width: 25px;
+    line-height: 40px;
+    right: 5px;
+    top: 0;
+    text-align: center;
+    color: #c0c4cc;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all .3s;
+    transform: rotate(0deg);
+    &::before {
+      font-family: 'iconfont';
+      content: '\e60c';
+    }
+    &::after {
+      content: '';
+      height: 100%;
+      width: 0;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    &.is-reverse {
+      transform: rotate(180deg);
+    }
+  }
+  .select-dropdown {
+    width: 100%;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+    border: 1px solid #e4e7ed;
+    border-radius: 4px;
+    background-color: #fff;
+    box-sizing: border-box;
+    margin: 5px 0;
+    margin-top: 12px;
+    .list {
+      list-style: none;
+      padding: 6px 0;
+      margin: 0;
+      box-sizing: border-box;
+      .list-item {
+        font-size: 14px;
+        padding: 0 20px;
+        position: relative;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: #606266;
+        height: 34px;
+        line-height: 34px;
+        box-sizing: border-box;
+        cursor: pointer;
+      }
+    }
+  }
+}

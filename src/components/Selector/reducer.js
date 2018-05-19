@@ -9,7 +9,7 @@ const SelectorReducer = (PREFIX) => {
     return state
   }
 
-  const selectResult = (state = null, action) => {
+  const selectResult = (state = [], action) => {
     if (action.type === buildConstant(PREFIX, SET_SELECT_RESULT)) {
       return action.result
     }

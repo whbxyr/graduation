@@ -64,9 +64,13 @@ const render = () => {
           />
           <Route path={'/selector'} render={() =>
             <div className='selector-ctn'>
-              <Selector style={{}} className='' PREFIX='' choices={[
+              <Selector style={{}} className='' PREFIX='' multiple choices={[
                 {key: 0, label: '第一个', value: 0},
-                {key: 1, label: '第二个', value: 1}
+                {key: 1, label: '第二个', value: 1},
+                {key: 2, label: '第三个', value: 2},
+                {key: 3, label: '第四个', value: 3},
+                {key: 4, label: '第五个', value: 4},
+                {key: 5, label: '第六个', value: 5}
               ]} />
             </div>}
           />

@@ -74,6 +74,10 @@ class Upload extends Component {
     xhr.onload = () => {
       console.log('success')
     }
+    // 上传失败的钩子
+    xhr.onerror = (err) => {
+      console.log(err)
+    }
     // 启动ajax请求
     xhr.open('post', uploadUrl, true)
     xhr.onreadystatechange = () => {
@@ -102,6 +106,7 @@ class Upload extends Component {
           //   'infos': '上传失败'
           // }
           // ReactDOM.render(<PromtToast toastInfos={toastInfos} />, document.querySelector('.toast'))
+          console.log(xhr.status)
           this.setPreview('')
         }
         // 解除占用

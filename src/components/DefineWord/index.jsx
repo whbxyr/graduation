@@ -39,12 +39,13 @@ class DefineWord extends Component {
     if (text) {
       deleteTime = -1
     }
-    const { defineWord, PREFIX, dispatchAction } = this.props
+    const { defineWord, PREFIX, dispatchAction, onChange } = this.props
     let len = text.length
     if (text[len - 1] === ' ' || text[len - 1] === '\n') {
       let word = text.slice(0, len - 1)
       if (word !== '') {
         dispatchAction(DefineWordAction(PREFIX).changeDefineWord(defineWord ? (defineWord + ',' + word) : word))
+        onChange && onChange(defineWord ? (defineWord + ',' + word) : word)
       }
       if (this.refs.input_area) {
         deleteTime++
@@ -55,10 +56,11 @@ class DefineWord extends Component {
 
   // 清除自定义词典的函数
   clearDefineWord() {
-    const { defineWord, PREFIX, dispatchAction } = this.props
+    const { defineWord, PREFIX, dispatchAction, onChange } = this.props
     // 有数据的时候才需要清除
     if (defineWord) {
       dispatchAction(DefineWordAction(PREFIX).changeDefineWord(''))
+      onChange && onChange('')
     }
   }
 
@@ -80,13 +82,14 @@ class DefineWord extends Component {
 
   // 有效删除一个自定义关键词的函数
   deleteOneWord() {
-    let { defineWord, PREFIX, dispatchAction } = this.props
+    let { defineWord, PREFIX, dispatchAction, onChange } = this.props
     if (!defineWord) {
       return
     }
     defineWord = defineWord.split(',')
     defineWord = defineWord.slice(0, defineWord.length - 1).join(',')
     dispatchAction(DefineWordAction(PREFIX).changeDefineWord(defineWord))
+    onChange && onChange(defineWord)
   }
 
   render() {

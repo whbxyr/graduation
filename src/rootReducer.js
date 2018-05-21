@@ -7,6 +7,7 @@ import UploadReducer from './components/Upload/reducer'
 import SearchReducer from './components/Search/reducer'
 import DragProgressReducer from './components/DragProgress/reducer'
 import SelectorReducer from './components/Selector/reducer'
+import SwitcherReducer from './components/Switcher/reducer'
 
 export default combineReducers({
   routing: routerReducer,
@@ -16,5 +17,6 @@ export default combineReducers({
   upload: UploadReducer(''),
   search: SearchReducer(''),
   dragProgress: DragProgressReducer(''),
-  selector: SelectorReducer('')
+  selector: SelectorReducer(''),
+  switcher: SwitcherReducer('')
 })

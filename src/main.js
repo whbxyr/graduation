@@ -17,6 +17,7 @@ import Upload from './components/Upload'
 import Search from './components/Search'
 import DragProgress from './components/DragProgress'
 import Selector from './components/Selector'
+import Switcher from './components/Switcher'
 
 const browserHistory = createBrowserHistory()
 const store = createStore(browserHistory)
@@ -28,7 +29,10 @@ const render = () => {
       <Router history={history}>
         <App>
           <Route path={'/defineword'} render={() =>
-            <DefineWord PREFIX='' style={{'width': '300px', 'margin': '0 auto'}} className='myword' />}
+            <DefineWord PREFIX='' style={{'width': '300px', 'margin': '0 auto'}}
+              className='myword'
+              onChange={(result) => console.log(result)}
+            />}
           />
           <Route path={'/datepicker'} render={() =>
             <div className='datepicker-ctn'>
@@ -71,7 +75,15 @@ const render = () => {
                 {key: 3, label: '第四个', value: 3},
                 {key: 4, label: '第五个', value: 4},
                 {key: 5, label: '第六个', value: 5}
-              ]} />
+              ]} onChange={(result) => console.log(result)} />
+            </div>}
+          />
+          <Route path={'/switcher'} render={() =>
+            <div className='switcher-ctn'>
+              <Switcher style={{}} className='' PREFIX=''
+                activeValue={'按年付费'} inactiveValue={'按月付费'}
+                onChange={(status, value) => console.log(status, value)}
+              />
             </div>}
           />
         </App>

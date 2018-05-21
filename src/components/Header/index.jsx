@@ -60,6 +60,10 @@ class Header extends Component {
             <div className='img selector' />
             <div className='text toh'>选择组件</div>
           </a>
+          <a className='l link clearfloat' title='开关组件' href='/switcher'>
+            <div className='img switch' />
+            <div className='text toh'>开关组件</div>
+          </a>
         </div>
       </div>
     )

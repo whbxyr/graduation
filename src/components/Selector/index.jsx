@@ -19,7 +19,7 @@ class Selector extends Component {
   }
 
   select(item) {
-    const { multiple, selectResult } = this.props
+    const { multiple, selectResult, onChange } = this.props
     let ifHad = false
     let newSelectResult = []
     if (multiple) {
@@ -38,6 +38,7 @@ class Selector extends Component {
       newSelectResult = newSelectResult.concat(item)
     }
     this.doDispatch('setSelectResult', newSelectResult)
+    onChange && onChange(newSelectResult)
   }
 
   // 封装的dispatch，接受参数[actionCreator, ...params]
